@@ -277,7 +277,7 @@ struct Comparable : crtp<T, Comparable>
     }
 // On Visual Studio before 19.22, you cannot define constexpr with friend function
 // See: https://stackoverflow.com/a/60400110
-#if defined(_MSC_VER) && _MSC_VER < 1922
+#if defined(_MSC_VER) && _MSC_VER < 1929
     FLUENT_NODISCARD constexpr bool operator==(T const& other) const
     {
         return !(*this < other) && !(other.get() < this->underlying().get());
